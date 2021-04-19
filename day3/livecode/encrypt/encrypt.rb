@@ -1,30 +1,34 @@
+# def encrypt(sentence)
+#   # split the sentence into an array of its letters
+#   shifted_letters = []
+#   letters = sentence.split("")
+#   # define the alphabet array
+#   alphabet = ("A".."Z").to_a
+#   # iterate over each letter (letters & whitespaces)
+#   letters.each do |letter|
+#     # IF is this letter an actual letter or a whitespace??
+#     if letter == " "
+#       # otherwise
+#         # keep the whitespace
+#       shifted_letters << " "
+#     else
+#       # assign a new letter, 3 positions shifted backwards
+#       letter_index = alphabet.index(letter)
+#       new_letter = alphabet[letter_index - 3]
+#       shifted_letters << new_letter
+#     end
+#   end
+#   shifted_letters.join("")
+#   # join them into a big string  
+# end
 
 def encrypt(sentence)
-  # split the sentence into an array of individual letters
-  array_of_characters = sentence.upcase.split("")
-  # define an array with the alphabet
-  alphabet_array = ("A".."Z").to_a
-  # iterate over each character, shift 3 times to the left
-  shifted_array = array_of_characters.map do |character|
-    character_index = alphabet_array.index(character)
-    # check if the letter is included in the aalphabet array
-    character_index.nil? ? " " : alphabet_array[character_index - 3]
-  end
-  # join all the shifted charcaters
-  shifted_array.join
+  alphabet = ("A".."Z").to_a
+  sentence.split("").map do |letter|
+    letter == " " ? " " : alphabet[alphabet.index(letter) - 3]
+  end.join("")
 end
 
 
-
-
-
-
-
-
-students = [ [ "john", 28 ], [ "mary", 25 ], [ "paul", 21 ] ]
-
-
-s = students.map do |student|
-{name: student[0], age: student[1]}
-end
-p s
+p encrypt("THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG")
+# => "QEB NRFZH YOLTK CLU GRJMP LSBO QEB IXWV ALD"
