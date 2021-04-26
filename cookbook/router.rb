@@ -19,6 +19,7 @@ class Router
     puts "1 - list"
     puts "2 - create"
     puts "3 - delete"
+    puts "4 - import"
     puts "9 - stop"
   end
 
@@ -27,6 +28,7 @@ class Router
     when 1 then @controller.list
     when 2 then @controller.create
     when 3 then @controller.delete
+    when 4 then @controller.import
     when 9 then @running = false
     else
       puts "wrong choice"
